@@ -1,0 +1,4 @@
+name: SnowPrints
+version: '${project.version}'
+main: me.kermx.snowprints.SnowPrints
+api-version: 1.19
