@@ -18,19 +18,19 @@ public final class SnowPrints extends JavaPlugin {
             @Override
             public void run() {
                 for (Player player : Bukkit.getOnlinePlayers())
-                    SnowPrints.this.handlePlayer(player);
+                    SnowPrints.this.playerHandler(player);
             }
         }, 10L, 5L);
 
     }
 
-    private void handlePlayer(Player player) {
+    private void playerHandler(Player player) {
         if (player.getGameMode() != GameMode.SURVIVAL || player.isSneaking())
             return;
-        handleBlock(player.getLocation().getBlock(), player);
+        blockHandler(player.getLocation().getBlock(), player);
     }
 
-    private void handleBlock(Block block, Player player) {
+    private void blockHandler(Block block, Player player) {
         if (block.getType() == Material.SNOW && player.isSprinting())
             block.setType(Material.AIR);
         if (block.getType() == Material.SNOW && random.nextInt(200) < 60)
@@ -39,6 +39,6 @@ public final class SnowPrints extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        Bukkit.getLogger().info("§bSnowPrints disabled!");
+        Bukkit.getLogger().info("SnowPrints disabled!");
     }
 }
